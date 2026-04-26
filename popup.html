@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        min-width: 360px;
+        margin: 12px;
+      }
+      h1 {
+        font-size: 18px;
+        margin: 0 0 8px;
+      }
+      p {
+        margin: 0 0 10px;
+        color: #333;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+      input {
+        flex: 1;
+        padding: 6px 8px;
+      }
+      button {
+        padding: 6px 10px;
+        cursor: pointer;
+      }
+      .settings-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .field label {
+        font-size: 12px;
+        color: #444;
+      }
+      .field input {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .field-full {
+        grid-column: 1 / -1;
+      }
+      .settings-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .settings-note {
+        font-size: 12px;
+        color: #555;
+        margin-top: 6px;
+      }
+      #settingsStatus {
+        font-size: 12px;
+        color: #0f5132;
+        min-height: 16px;
+        margin-top: 6px;
+      }
+      #previewPanel,
+      #settingsPanel {
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 8px;
+        background: #fafafa;
+      }
+      #previewStatus {
+        font-size: 12px;
+        margin-bottom: 6px;
+      }
+      #warnings {
+        font-size: 12px;
+        color: #a15a00;
+        margin: 6px 0;
+      }
+      #previewTable {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12px;
+      }
+      #previewTable td {
+        border-top: 1px solid #eee;
+        padding: 4px 2px;
+        vertical-align: top;
+      }
+      #previewTable td:first-child {
+        width: 42%;
+        color: #444;
+      }
+      #syncButton:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Donation Sync</h1>
+    <p>Sadece Referans No girerek Plus kaydini Partner Tahsilat formuna aktarir.</p>
+    <div class="row">
+      <input id="siraNoInput" placeholder="Referans No (Makbuz No) girin" />
+      <button id="previewButton">Önizleme Al</button>
+    </div>
+    <div id="previewPanel" style="margin-top: 10px">
+      <div id="previewStatus">Henüz önizleme alınmadı.</div>
+      <div id="warnings"></div>
+      <table id="previewTable"></table>
+    </div>
+    <div class="row" style="margin-top: 10px">
+      <button id="syncButton" disabled>Onayla ve Doldur</button>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

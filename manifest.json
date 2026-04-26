@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Donation Sync",
+  "version": "1.7.0",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["scripting", "activeTab", "tabs", "storage"],
+  "host_permissions": [
+    "https://sakaryaihh.sistem.plus/*",
+    "https://partner.ihh.org.tr/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://sakaryaihh.sistem.plus/*",
+        "https://partner.ihh.org.tr/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
